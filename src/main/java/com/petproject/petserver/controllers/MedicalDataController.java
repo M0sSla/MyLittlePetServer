@@ -17,30 +17,30 @@ public class MedicalDataController {
     private final MedicalDataService medicalDataService;
 
     @GetMapping("/medical_data")
-    public ResponseEntity<List<MedicalData>> getAllNotes() {
+    public ResponseEntity<List<MedicalData>> getAllMedicalData() {
         return ResponseEntity.ok(medicalDataService.getAllMedicalData());
     }
 
     @GetMapping("/medical_data/{id}")
-    public ResponseEntity<MedicalData> getNoteByID(@PathVariable Long id) {
+    public ResponseEntity<MedicalData> getMedicalDataByID(@PathVariable Long id) {
         return ResponseEntity.ok(medicalDataService.getMedicalDataByID(id));
     }
 
     @PostMapping("/medical_data")
-    public ResponseEntity<MedicalData> createNote(MedicalData medicalData) {
+    public ResponseEntity<MedicalData> createMedicalData(MedicalData medicalData) {
         return new ResponseEntity<>(medicalDataService.saveMedicalData(medicalData), HttpStatus.CREATED);
     }
 
     @PutMapping("/medical_data/{id}")
-    public ResponseEntity<MedicalData> changeNoteById(MedicalData newMedicalData,
-                                                      @PathVariable Long id) {
+    public ResponseEntity<MedicalData> changeMedicalDataById(MedicalData newMedicalData,
+                                                             @PathVariable Long id) {
         newMedicalData.setId(id);
         return new ResponseEntity<>(medicalDataService.saveMedicalData(newMedicalData), HttpStatus.ACCEPTED);
     }
 
 
     @DeleteMapping("/medical_data/{id}")
-    public ResponseEntity<String> deleteNoteById(@PathVariable Long id) {
+    public ResponseEntity<String> deleteMedicalDataById(@PathVariable Long id) {
         medicalDataService.delete(id);
         return new ResponseEntity<>("Note doesn't exist no more", HttpStatus.ACCEPTED);
     }
