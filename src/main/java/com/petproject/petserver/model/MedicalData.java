@@ -19,19 +19,13 @@ public class MedicalData {
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String type;
 
     @Column(nullable = false)
-    private Long date;
+    private byte[] image;
 
     @Column(nullable = false)
-    private Long time;
-
-    @Column(nullable = false)
-    private String imageURI;
-
-    @Column(nullable = false)
-    private String note;
+    private String text;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn()

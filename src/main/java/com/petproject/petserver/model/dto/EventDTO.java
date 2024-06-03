@@ -11,7 +11,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class EventDTO {
     private Long id;
-    private Long date;
-    private String label;
 
+    private Long time;
+    private String label;
+    private Boolean repeatable;
 }

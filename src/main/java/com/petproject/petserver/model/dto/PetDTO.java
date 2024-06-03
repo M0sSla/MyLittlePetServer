@@ -16,13 +16,14 @@ import java.util.List;
 public class PetDTO {
     private Long id;
     private User user;
+
     private String name;
     private String type;
-    private String imageURI;
+    private byte[] image;
     private Long dateOfBirth;
     private Float weight;
+
     private List<EventDTO> eventList;
     private List<NoteDTO> noteList;
     private List<MedicalDataDTO> medicalDataList;
-
 }

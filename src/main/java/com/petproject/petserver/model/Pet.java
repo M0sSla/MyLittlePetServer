@@ -27,7 +27,7 @@ public class Pet {
 
 
     @Column(nullable = false)
-    private String imageURI;
+    private byte[] image;
 
     @Column(nullable = false)
     private Long dateOfBirth;

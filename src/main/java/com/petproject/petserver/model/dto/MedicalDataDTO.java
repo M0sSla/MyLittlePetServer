@@ -11,9 +11,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class MedicalDataDTO {
     private Long id;
-    private String name;
-    private Long date;
-    private Long time;
-    private String imageURI;
-    private String note;
+
+    private String type;
+    private byte[] image;
+    private String text;
 }

@@ -19,13 +19,15 @@ public class Event {
     private Long id;
 
     @Column(nullable = false)
-    private Long date;
+    private Long time;
 
     @Column(nullable = false)
     private String label;
 
+    @Column(nullable = false)
+    private Boolean repeatable;
+
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn()
     private Pet pet;
-
 }

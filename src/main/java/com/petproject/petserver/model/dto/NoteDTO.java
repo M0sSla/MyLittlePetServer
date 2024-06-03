@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class NoteDTO {
     private Long id;
+
     private String text;
     private Integer iconResId;
 }
