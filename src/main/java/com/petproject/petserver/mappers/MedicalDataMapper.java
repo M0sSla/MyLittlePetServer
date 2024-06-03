@@ -7,6 +7,5 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface MedicalDataMapper {
-    @Mapping(source = "type.type", target = "type")
     MedicalDataDTO toMedicalDataDTO(MedicalData medicalData);
 }
