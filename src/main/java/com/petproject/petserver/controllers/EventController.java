@@ -27,12 +27,12 @@ public class EventController {
     }
 
     @PostMapping("/events")
-    public ResponseEntity<Event> createEvent(Event event) {
+    public ResponseEntity<Event> createEvent(@RequestBody Event event) {
         return new ResponseEntity<>(eventService.saveEvent(event), HttpStatus.CREATED);
     }
 
     @PutMapping("/events/{id}")
-    public ResponseEntity<Event> changeEventById(Event newEvent,
+    public ResponseEntity<Event> changeEventById(@RequestBody Event newEvent,
                                                  @PathVariable Long id) {
         newEvent.setId(id);
         return new ResponseEntity<>(eventService.saveEvent(newEvent), HttpStatus.ACCEPTED);

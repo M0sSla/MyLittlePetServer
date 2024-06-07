@@ -27,12 +27,12 @@ public class PetTypeController {
     }
 
     @PostMapping("/pet_types")
-    public ResponseEntity<PetType> createPet(PetType petType) {
+    public ResponseEntity<PetType> createPet(@RequestBody PetType petType) {
         return new ResponseEntity<>(petTypeService.savePetType(petType), HttpStatus.CREATED);
     }
 
     @PutMapping("/pet_types/{id}")
-    public ResponseEntity<PetType> changePetTypeById(PetType newPetType,
+    public ResponseEntity<PetType> changePetTypeById(@RequestBody PetType newPetType,
                                                      @PathVariable Long id) {
         newPetType.setId(id);
         return new ResponseEntity<>(petTypeService.savePetType(newPetType), HttpStatus.ACCEPTED);

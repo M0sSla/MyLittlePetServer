@@ -27,13 +27,13 @@ public class MedicalDataController {
     }
 
     @PostMapping("/medical_data")
-    public ResponseEntity<MedicalData> createMedicalData(MedicalData medicalData) {
+    public ResponseEntity<MedicalData> createMedicalData(@RequestBody MedicalData medicalData) {
         return new ResponseEntity<>(medicalDataService.saveMedicalData(medicalData), HttpStatus.CREATED);
     }
 
     @PutMapping("/medical_data/{id}")
-    public ResponseEntity<MedicalData> changeMedicalDataById(MedicalData newMedicalData,
-                                                             @PathVariable Long id) {
+    public ResponseEntity<MedicalData> changeMedicalDataById(@RequestBody MedicalData newMedicalData,
+                                                      @PathVariable Long id) {
         newMedicalData.setId(id);
         return new ResponseEntity<>(medicalDataService.saveMedicalData(newMedicalData), HttpStatus.ACCEPTED);
     }

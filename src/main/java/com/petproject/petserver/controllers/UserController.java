@@ -22,23 +22,23 @@ public class UserController {
     }
 
     @GetMapping("/users/{id}")
-    public ResponseEntity<User> getPetById(@PathVariable Long id) {
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
     @PostMapping("/users")
-    public ResponseEntity<User> createPet(User user) {
+    public ResponseEntity<User> createUser(@RequestBody User user) {
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 
     @PutMapping("/users/{id}")
-    public ResponseEntity<User> updatePet(@PathVariable Long id, User newUser) {
+    public ResponseEntity<User> updateUser(@PathVariable Long id, User newUser) {
         newUser.setId(id);
         return new ResponseEntity<>(userService.saveUser(newUser), HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<String> deletePet(@PathVariable Long id) {
+    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userService.delete(id);
         return new ResponseEntity<>("User doesn't exist no more", HttpStatus.ACCEPTED);
     }

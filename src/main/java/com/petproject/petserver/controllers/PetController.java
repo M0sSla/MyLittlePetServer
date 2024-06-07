@@ -28,7 +28,7 @@ public class PetController {
     }
 
     @PostMapping("/pets")
-    public ResponseEntity<Pet> createPet(PetDTO petDTO) {
+    public ResponseEntity<Pet> createPet(@RequestBody PetDTO petDTO) {
         return new ResponseEntity<>(petService.savePet(petDTO), HttpStatus.CREATED);
     }
 

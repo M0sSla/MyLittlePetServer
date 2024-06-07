@@ -27,12 +27,12 @@ public class NoteController {
     }
 
     @PostMapping("/notes")
-    public ResponseEntity<Note> createNote(Note note) {
+    public ResponseEntity<Note> createNote(@RequestBody Note note) {
         return new ResponseEntity<>(noteService.saveNote(note), HttpStatus.CREATED);
     }
 
     @PutMapping("/notes/{id}")
-    public ResponseEntity<Note> changeNoteById(Note newNote,
+    public ResponseEntity<Note> changeNoteById(@RequestBody Note newNote,
                                                  @PathVariable Long id) {
         newNote.setId(id);
         return new ResponseEntity<>(noteService.saveNote(newNote), HttpStatus.ACCEPTED);

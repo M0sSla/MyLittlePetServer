@@ -5,7 +5,6 @@ import com.petproject.petserver.model.Pet;
 import com.petproject.petserver.model.PetType;
 import com.petproject.petserver.model.dto.PetDTO;
 import com.petproject.petserver.repositories.PetTypeRepository;
-import com.petproject.petserver.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -15,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class PetMapperService {
     private final PetTypeRepository petTypeRepository;
 
-    public Pet dtoToPet(PetDTO petDTO){
+    public Pet dtoToPet(PetDTO petDTO) {
         if (petDTO == null) return null;
         return Pet.builder()
                 .id(petDTO.getId())
@@ -28,7 +27,7 @@ public class PetMapperService {
                 .build();
     }
 
-    private PetType getPetType(String typeName){
+    private PetType getPetType(String typeName) {
         return petTypeRepository.findPetTypeByType(typeName)
                 .orElseThrow(() -> new AppException("Unknown pet type", HttpStatus.NOT_FOUND));
     }
